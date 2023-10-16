@@ -13,6 +13,16 @@ export dynamic_mongodb_admin=$global_mongodb_admin
 export dynamic_mongodb_adminpass=$global_mongodb_adminpass
 
 
+# Redis Cluster 使用:  (IP Port)
+export dynamic_redis_cluster1_ip=(192.168.103.3)
+export dynamic_redis_cluster2_ip=(192.168.103.3 6479)
+export dynamic_redis_cluster3_ip=(192.168.103.3 6579)
+export dynamic_redis_cluster4_ip=(192.168.103.219)
+export dynamic_redis_cluster5_ip=(192.168.103.219 6479)
+export dynamic_redis_cluster6_ip=(192.168.103.219 6579)
+export REDIS_PASSWORD='Gd@123'
+export REDIS_DATA_DIR='./data'  # ./data 跟docker-compose文件同目录
+
 # Postgresql ------------------------------------------------------------
 export dynamic_postgresql_numOfServers=3  # 值为1为单机模式
 export dynamic_postgresql_port=$global_postgresql_port             #默认5432

@@ -28,6 +28,7 @@ function displayMainMenu(){
   echo "-------- 6/G：MySQL $(isInstalled mysql)"
   echo "-------- 7/H：Keepalive $(isInstalled keepalive)"
   echo "-------- 8/I：Display all local docker instances"
+  echo "-------- 11/L: Redis Cluster $(isInstalled redis-cluster)"
   echo "-------- 9/Q：Quilt"
   echo "*********************************************************************************"
 
@@ -38,7 +39,7 @@ mainSelect()
 {
   while true; do
     read -p "Please select Option:" option
-    flag=$(echo $option|egrep "[0-9]|[A-Ha-h,Qq]" |wc -l)
+    flag=$(echo $option|egrep "[0-9]|[A-La-l,Qq]" |wc -l)
     [ $flag -eq 1 ] && break
   done
   
@@ -80,6 +81,12 @@ mainSelect()
        displayAllInstances
        mainSelect
     ;;
+    11|L|l)
+       lvl1_selected_comp=redis-cluster
+
+       . libs/components/redis-cluster/deploy_redis_cluster.sh
+    ;;
+
     9|Q|q)
       colorEcho "byebye!"
       exit 0
